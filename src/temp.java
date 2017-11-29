@@ -17,6 +17,10 @@
 
 
 
+//FacebookClient fbClient = new DefaultFacebookClient(accessToken, Version.VERSION_2_4);
+//User me = fbClient.fetchObject("me", User.class, Parameter.with("fields", "email,first_name,last_name,gender"));
+
+
 
 
 import java.sql.*;
