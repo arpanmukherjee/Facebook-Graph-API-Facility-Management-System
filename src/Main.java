@@ -21,8 +21,8 @@ public class Main
         String url, pageAccessToken, userAccessToken, name, roomno, rollno, dept, sfbId, efbId, postfbId, description;
         Timestamp sqlDate,date;
         int i;
-        pageAccessToken = "EAACEdEose0cBANJYjdLY3Fo6y4HBhohxEkhp9BZAQGtS8gl3KdkKKJ0XtgXZCHIynZA3n1ZC4z3nqTf38fEnG9O3FkGxR9prLCyojQ9D6qWCOG3dp7CYNczcmgtMyhUqaZA5UOUawCZCndQuG95eTpFm6zyQNIWQlVJ6k0ROo244CoZCQNJgvkB8Uv7CI21DZBLZBJlIgIZALZC3gZDZD";
-        userAccessToken = "EAACEdEose0cBAAUnDZAHqmNKfh1SmIhRalckrb4EWR8ZAj1hippqVikQZA3BPjdTkwcO2ZBdnsDmC5IHS0Vu1Wqt1cUcOetyyJw2SEms4SQccAgBvPE4ELhAbcow7kVUmnDDVlcP20ZBtwZBYIcZAcbe0OFVqZAa4bZAl3b4mtCzZBNGOxm8HSnZA6dJmDXE8UtyNwZD";
+        pageAccessToken = "EAACEdEose0cBAEYnD5lMYDUT43Qgoo83gXo0sZAif0JIOYZB8k8NcvIZC1307zG4djc9iPZAaX548hD4FLdGNU9EdPK9mQgQxZAQv0hW1q44bUuTIw4GGyQBTltS5SD4vyPVaiD6mu3ZAhZB4ZCMepsefuMLzZAw1PZAqtqKdQmfymO79MMhYA6r77qxGawBu53uh3puziRkjBiwZDZD";
+        userAccessToken = "EAACEdEose0cBAFrcdCgV662oJXDhl1svRSOinOMsVi5NZC6fL83EM5UBgtoBBoj98TQ7OCqDlZA2MErqdzjBBUuTripAAy7B0SA9vtZCLlS7XjCM7C1VHbbEZCbLxybVbHOe68TkcOrXaPpG2WEYE2XxfZBycwqkUwZBgNNjxiMFitpL4HRI36Apnw5RRTdTEZD";
         url = "https://www.facebook.com/FMSiiitdelhi/";
 
         FacebookClient fbClient = new DefaultFacebookClient(userAccessToken);
@@ -192,7 +192,7 @@ public class Main
                 task = rs.getInt("tasks");
                 dept = rs.getString("dept");
                 System.out.println(dept+" "+task);
-                sqlQuery = "SELECT * from employee where (? - tasks) >10 and dept=?";
+                sqlQuery = "SELECT * from employee where (? - tasks) >0 and dept=?";
                 preparedStmnt = con.prepareStatement(sqlQuery);
                 preparedStmnt.setInt(1,task);
                 preparedStmnt.setString(2,dept);
