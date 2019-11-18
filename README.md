@@ -56,7 +56,7 @@ We used to simple [SQL](https://en.wikipedia.org/wiki/SQL) database for our proj
 This table is for storing the basic information for the students. We stored the total 4 fields of each students - **Roll No, Name, Room No** and **Facebook Unique ID** of the student.
 
 | Field | Type | Null Value| Key Type | Default Value|
-|--|--|--|--|--|--|--|
+|--|--|--|--|--|
 |rollno|varchar(10)|NO|Primary|NULL
 |name|varchar(100)|NO|-|NULL
 |roomno|varchar(10)|NO|-|NULL
@@ -66,7 +66,7 @@ This table is for storing the basic information for the students. We stored the 
 This table is for storing the basic information for the FMS employees. We stored the total 4 fields of each students - **Facebook Unique ID, Name, Department** and **No of tasks completed by** of the employee.
 
 | Field | Type | Null Value| Key Type | Default Value|
-|--|--|--|--|--|--|--|
+|--|--|--|--|--|
 |efbid|varchar(30)|YES|Primary|NULL
 |name|varchar(100)|NO|-|NULL
 |dept|varchar(20)|NO|-|NULL
@@ -75,7 +75,7 @@ This table is for storing the basic information for the FMS employees. We stored
 ### Complaint
 This table is for storing all the complaint/request details done by the students. Following is the table format and description of each field.
 
-| Field | Type | Null Value | Key Type | Default Value | Description
+| Field | Type | Null Value | Key Type | Default Value | Description |
 |--|--|--|--|--|--|
 | postid | varchar(100) | NO | Primary | NULL | Facebook generated unique ID of the post |
 | sfbid | varchar(30) | NO | - | NULL| Facebook generated unique ID for the student |
