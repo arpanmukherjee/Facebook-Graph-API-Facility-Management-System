@@ -1,5 +1,5 @@
 # Facility Management System (FMS) IIITD
-In this project me and my partner [Rajshree Khare](https://github.com/rajshreekhare) designed and implemented a [Facility Management System](https://www.iiitd.ac.in/facilities/fms) (FMS) for IIITD, an improved version of our college’s current FMS. Our task was to create a high quality software by implementing the advanced OOP concepts.
+In this project me and my partner [Rajshree Khare](https://github.com/rajshreekhare) designed and implemented a [Facility Management System](https://www.iiitd.ac.in/facilities/fms) (FMS) for IIITD, an improved version of our college’s current existing FMS. Our task was to create a software by implementing the advanced OOP concepts.
 
 
 # Table of contents
@@ -7,11 +7,12 @@ In this project me and my partner [Rajshree Khare](https://github.com/rajshreekh
 1. [Project Details](#project-details)
 2. [FMS Functions](#fms-functions)
 3. [Control Flow](#control-flow)
-4. [Database](#database)
+4. [Technologies Used](#technologies-used)
+5. [Database](#database)
 	1. [Student](#student)
 	2. [Employee](#employee)
 	3. [Complaint](#complaint)
-5. [Complaint Format](#complaint-format)
+6. [Complaint Format](#complaint-format)
 	1. [Student Registration](#student-registration) 
 	2. [Employee Registration](#employee-registration) 
 	3. [Complaint Registration](#complaint-registration) 
@@ -19,7 +20,7 @@ In this project me and my partner [Rajshree Khare](https://github.com/rajshreekh
 
 <!-- Project Details -->
 ## Project Details
-This is an automated facility management system where task will be automatically assigned to the workers. This portal provides various services to the resident of IIITD like Electrical, Housekeeping, Horticulture, and work done by carpenter and mason, and others. Main functionality of this portal is to provide a platform for booking complaint for repair, performing maintenance or upgradation activities, keeping track record of each employee.
+This is an automated facility management system where task will be automatically assigned to the workers. This portal provides various services to the resident of IIITD like Electrical, Housekeeping, Horticulture, and work done by Carpenter and Mason. Main functionality of this portal is to provide a platform for booking complaint for repair, performing maintenance or upgradation activities, keeping track record of each employee.
 
 User using the system are Students, FMS Employee and FMS Administrator. There are employee for each type of service like electrician to do electrical work, sweepers for housekeeping, gardeners, carpenter and mason. This will be a text based system. All complaints and facility management will be done through command.
 
@@ -32,8 +33,6 @@ We made a Facebook based system. For this we have created a FMS Facebook page. O
  - **Complaint/request for Repair**: Student can complaint about a specific service provided or request for repair. User will mention location, type of service needed, and all other relevant details.
  - **Assigning Task**: For complaint and request for repair, system will automatically assign an employee of specific profession as requested by the user to that complaint. After completion of the task, employee will tell the system about status of the job done and student will be asked for confirmation and feedback. The task has to be completed in 24 hours deadline. Count of task completed and task not completed in time/ bad feedback for each employee will be maintained. If number of task completed is 10 less than the other then that employee is reported to the admins.
 
-
-<!-- Control flow -->
 ## Control Flow
 
  - First the employees and the students get themselves registered.
@@ -45,6 +44,9 @@ We made a Facebook based system. For this we have created a FMS Facebook page. O
 -   Now the system posts another comment asking for the students feedback for the service, which is a rating from 1 to 5, with 1 as the highest rating and 5 as the least.
 
 
+## Technologies Used
+We initially created a facebook page named [FMS IIIT-Delhi](https://www.facebook.com/FMSiiitdelhi/), where all the users shall create a post and using the formats we mentioned in [registration](#complaint-format) section. We will call Facebook's [Graph API](https://developers.facebook.com/docs/graph-api/) for the generated page for each 5 minutes. Since our project was in Java and facebook didn't have any official Java written Graph API, we used [RestFB](https://github.com/restfb/restfb), which is a pure Java Facebook Graph API client with no external dependencies. We extracted all the information of any post and user using RestFB and processed later.
+
 
 <!-- Database details -->
 ## Database
@@ -53,9 +55,8 @@ We used to simple [SQL](https://en.wikipedia.org/wiki/SQL) database for our proj
 ### Student
 This table is for storing the basic information for the students. We stored the total 4 fields of each students - **Roll No, Name, Room No** and **Facebook Unique ID** of the student.
 
-
 | Field | Type | Null Value| Key Type | Default Value|
-|--|--|--|--|--|
+|--|--|--|--|--|--|--|
 |rollno|varchar(10)|NO|Primary|NULL
 |name|varchar(100)|NO|-|NULL
 |roomno|varchar(10)|NO|-|NULL
@@ -64,9 +65,8 @@ This table is for storing the basic information for the students. We stored the 
 ### Employee
 This table is for storing the basic information for the FMS employees. We stored the total 4 fields of each students - **Facebook Unique ID, Name, Department** and **No of tasks completed by** of the employee.
 
-
 | Field | Type | Null Value| Key Type | Default Value|
-|--|--|--|--|--|
+|--|--|--|--|--|--|--|
 |efbid|varchar(30)|YES|Primary|NULL
 |name|varchar(100)|NO|-|NULL
 |dept|varchar(20)|NO|-|NULL
@@ -74,7 +74,6 @@ This table is for storing the basic information for the FMS employees. We stored
 
 ### Complaint
 This table is for storing all the complaint/request details done by the students. Following is the table format and description of each field.
-
 
 | Field | Type | Null Value | Key Type | Default Value | Description
 |--|--|--|--|--|--|
@@ -91,7 +90,7 @@ This table is for storing all the complaint/request details done by the students
 | israted| int(11) | YES | - | 0 | A boolean column to indicate whether user has provided rating(1) or not(0) |
 
 
-<!-- Complaint format -->
+<!-- complaint format -->
 ## Complaint Format
 We followed a strict format for all the tasks. Based on the mentioned format we extract the data from the post posted by students or employees on the facebook page using Graph API. 
 
