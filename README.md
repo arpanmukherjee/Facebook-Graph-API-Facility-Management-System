@@ -114,4 +114,3 @@ We followed a strict format for all the tasks. Based on the mentioned format we 
 ### Complaint Registration
  - **Syntax**: `complaint roomno_hosteltype department compaint_description`
  - **Example**: `COMP C404G ELEC Please fix my AC!`
- - 
